@@ -1,0 +1,32 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/braclet
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: '914565371823-ld7v9lklp47pif29463596og7nt9t392.apps.googleusercontent.com'
+            client-secret: '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'
+            scope:
+              - email
+              - profile
