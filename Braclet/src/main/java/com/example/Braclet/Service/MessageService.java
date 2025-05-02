@@ -1,4 +1,4 @@
-package com.example.Braclet.Service;
+/*package com.example.Braclet.Service;
 
 
 import com.example.Braclet.Controlleur.MyAppUserRepository;
@@ -57,3 +57,4 @@ public class MessageService {
     }
 
 }
+*/

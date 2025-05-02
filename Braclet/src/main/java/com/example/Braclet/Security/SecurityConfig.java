@@ -83,7 +83,7 @@ public class SecurityConfig {
                 }))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/req/signup", "/req/signin", "/req/addBraceletId", "/oauth2/**", "/messages/mess").permitAll()
+                        .requestMatchers("/req/signup", "/req/signin", "/req/addBraceletId", "/oauth2/**", "/api/messages/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(

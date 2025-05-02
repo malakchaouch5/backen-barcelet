@@ -1,47 +1,33 @@
 package com.example.Braclet.Entity;
 
-
 import jakarta.persistence.*;
-import lombok.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "message")  // Optional: specify table name if necessary
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "messages")
 public class Message {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        private String text;
-        private String vocal;
-        private boolean anomalyDetected;
+        @ManyToOne
+        private MyAppUser sender;
+
+        @ManyToOne
+        private MyAppUser receiver;
+
+        private String content; // for text
+
         @Enumerated(EnumType.STRING)
+        @Column(name = "type")
         private MessageTypes type;
-        private boolean isTextMessage;
 
+        private String audioUrl; // for audio messages
 
+        private LocalDateTime timestamp;
 
-        @ManyToOne
-        @JoinColumn(name = "user_id", nullable = false)
-        private MyAppUser userid;
-
-        @ManyToOne
-        @JoinColumn(name = "bracelet_id", nullable = false)
-        private Bracelet braceletid;
-
-
-        // Manually add the getter method if Lombok is not working
-        public MyAppUser getUserid() {
-                return userid;
-        }
-
-        public void setUserid(MyAppUser user) {
-                this.userid = user;
-        }
+        // Getters & Setters
 
         public Long getId() {
                 return id;
@@ -51,52 +37,51 @@ public class Message {
                 this.id = id;
         }
 
-        public String getText() {
-                return text;
-        }
-        public void setText(String text) {
-                this.text = text;
+        public MyAppUser getSender() {
+                return sender;
         }
 
-        public void setIsTextMessage(boolean isTextMessage) {
-                this.isTextMessage = isTextMessage;
+        public void setSender(MyAppUser sender) {
+                this.sender = sender;
         }
 
-
-        public String getVocal() {
-                return vocal;
+        public MyAppUser getReceiver() {
+                return receiver;
         }
 
-        public void setVocal(String vocal) {
-                this.vocal = vocal;
+        public void setReceiver(MyAppUser receiver) {
+                this.receiver = receiver;
         }
 
-        public boolean isAnomalyDetected() {
-                return anomalyDetected;
+        public String getContent() {
+                return content;
         }
 
-        public void setAnomalyDetected(boolean anomalyDetected) {
-                this.anomalyDetected = anomalyDetected;
+        public void setContent(String content) {
+                this.content = content;
         }
 
         public MessageTypes getType() {
                 return type;
         }
 
-        public boolean isTextMessage() {
-                return isTextMessage;
-        }
-
-
         public void setType(MessageTypes type) {
                 this.type = type;
         }
 
-        public Bracelet getBraceletid() {
-                return braceletid;
+        public String getAudioUrl() {
+                return audioUrl;
         }
 
-        public void setBraceletid(Bracelet bracelet) {
-                this.braceletid = bracelet;
+        public void setAudioUrl(String audioUrl) {
+                this.audioUrl = audioUrl;
+        }
+
+        public LocalDateTime getTimestamp() {
+                return timestamp;
+        }
+
+        public void setTimestamp(LocalDateTime timestamp) {
+                this.timestamp = timestamp;
         }
 }

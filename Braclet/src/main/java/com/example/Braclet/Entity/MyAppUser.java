@@ -29,9 +29,6 @@ public class MyAppUser implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Maladie> maladies;
 
-    @OneToMany(mappedBy = "userid", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Message> messages;
-
     // Implement methods from UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -98,13 +95,6 @@ public class MyAppUser implements UserDetails {
         this.maladies = maladies;
     }
 
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
 
     public String getBraceletid() {
         return braceletid;
