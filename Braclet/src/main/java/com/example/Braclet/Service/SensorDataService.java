@@ -18,7 +18,7 @@ public class SensorDataService {
     public List<SensorData> getSensorDataByType(@NotNull String typeName) {
         Class<? extends SensorData> sensorClass = switch (typeName.toLowerCase()) {
             case "heartrate" -> HeartRate.class;
-            case "bloodpressure" -> BloodPressure.class;
+            case "temp" -> Temperature.class;
             case "oxygen" -> Oxygen.class;
             case "chute" -> Chute.class;
             default -> throw new IllegalArgumentException("Unknown sensor type: " + typeName);

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
-@Entity(name = "bloodPressure")
-@DiscriminatorValue("bloodPressure")
-public class BloodPressure extends SensorData {
+@Entity(name = "Temperature")
+@DiscriminatorValue("Temperature")
+public class Temperature extends SensorData {
 }

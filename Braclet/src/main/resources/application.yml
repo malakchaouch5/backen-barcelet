@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/braclet
     username: postgres
-    password: 1234
+    password: 1925
     driver-class-name: org.postgresql.Driver
 
   jpa:
